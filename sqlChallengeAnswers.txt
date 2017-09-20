@@ -1,0 +1,119 @@
+1. Find the average length of all tracks in Milliseconds
+  - SELECT AVG(Milliseconds) FROM Track;
+  - Gives us 393599.2121039109
+2. Find the number of invoices in the USA
+  - SELECT COUNT(BillingCountry) FROM Invoice
+    WHERE BillingCountry = 'USA';
+  - Gives us 91
+3. Make a list of all the First Names of Customers that contain an 'a'
+  - SELECT FirstName FROM Customer WHERE FirstName LIKE '%a%'
+  - Gives us:
+      François
+      František
+      Helena
+      Astrid
+      Daan
+      Kara
+      Eduardo
+      Alexandre
+      Fernanda
+      Mark
+      Frank
+      Jack
+      Dan
+      Kathy
+      Heather
+      Frank
+      Richard
+      Patrick
+      Julia
+      Edward
+      Martha
+      Aaron
+      Madalena
+      Hannah
+      Niklas
+      Camille
+      Marc
+      Wyatt
+      Isabelle
+      Ladislav
+      Lucas
+      Johannes
+      Stanisław
+      Joakim
+      Emma
+      Mark
+      Manoj
+      Puja
+4. Make a list of the 10 longest tracks
+  - SELECT Name FROM Track ORDER BY Milliseconds DESC LIMIT 10;
+  - Gives us:
+      Occupation / Precipice
+      Through a Looking Glass
+      Greetings from Earth, Pt. 1
+      The Man With Nine Lives
+      Battlestar Galactica, Pt. 2
+      Battlestar Galactica, Pt. 1
+      Murder On the Rising Star
+      Battlestar Galactica, Pt. 3
+      Take the Celestra
+      Fire In Space
+5. Make a list of the 20 shortest tracks
+  - SELECT Name FROM Track ORDER BY Milliseconds LIMIT 20;
+  - Gives us:
+      É Uma Partida De Futebol
+      Now Sports
+      A Statistic
+      Oprah
+      Commercial 1
+      The Real Problem
+      Commercial 2
+      Bossa
+      Casinha Feliz
+      Mateus Enter
+      Deixa Entrar
+      Homem Primata (Vinheta)
+      Cabeça Dinossauro
+      Freedom For My People
+      Demorou!
+      The Hellion
+      Little Guitars (Intro)
+      The Star Spangled Banner
+      Blanco
+      Smoked Pork
+6. Find all the customers that live in California or Washington
+  - SELECT FirstName, LastName, CustomerId, State FROM Customer WHERE STATE = 'CA' OR STATE = 'WA';
+  - Gives us:
+      Frank	Harris	16	CA
+      Jack	Smith	17	WA
+      Tim	Goyer	19	CA
+      Dan	Miller	20	CA
+7. Find all the customers that live in California, Washington, Utah, Florida, or Arizona (Use IN keyword)
+  - SELECT FirstName, CustomerId, State FROM Customer WHERE State IN('CA', 'WA', 'UT','FL','AZ');
+  - Gives us:
+      Frank	16	CA
+      Jack	17	WA
+      Tim	19	CA
+      Dan	20	CA
+      Heather	22	FL
+      Patrick	27	AZ
+      Julia	28	UT
+8. Insert an artist to the database
+  - INSERT INTO Artist (Name) VALUES(John Doe McTest);
+  - Gives us:
+      1 rows modified
+      SELECT Name, ArtistId FROM Artist WHERE Name = 'John Doe McTest';
+      Gives us:
+        John Doe McTest	276
+9. Insert yourself as a customer to the database
+  - INSERT INTO Customer (FirstName,LastName,City,State,Email) VALUES ("Scott","Serage","Provo","UT","testemail@test.com")
+10. Find a list of all Playlists that start with Classical
+  - SELECT Name, PlaylistId FROM Playlist WHERE SUBSTR(Name,1,9) = "Classical";
+  - Gives us:
+      Classical	12
+      Classical 101 - Deep Cuts	13
+      Classical 101 - Next Steps	14
+      Classical 101 - The Basics	15
+11. You can either continue exploring this dataset or look into setting up postgres on your local machine.
+  - Will attempt.
